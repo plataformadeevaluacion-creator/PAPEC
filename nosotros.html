@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAPEC — Nosotros</title>
+<title>PEPOP — Nosotros</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,6 +36,7 @@ nav {
 .logo-icon svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; }
 .logo-text { font-weight: 600; font-size: 1.2rem; color: #72243e; letter-spacing: 0.06em; }
 .logo-text span { color: #d4547e; }
+.logo-tagline { font-size: 0.62rem; color: #c08090; font-weight: 300; letter-spacing: 0.03em; margin-top: 1px; }
 .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
 .nav-links a { text-decoration: none; color: #993556; font-size: 0.88rem; transition: color 0.2s; }
 .nav-links a:hover { color: #d4547e; }
@@ -123,7 +124,7 @@ nav {
 /* TEAM CARDS */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   margin-top: 2rem;
 }
@@ -131,28 +132,30 @@ nav {
   background: white;
   border: 1px solid #ffd6e7;
   border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  display: flex; flex-direction: column; gap: 0.5rem;
+  padding: 1.8rem 1.2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  text-align: center;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .team-card:hover {
   border-color: #f4c0d1;
   box-shadow: 0 4px 24px rgba(212,84,126,0.09);
 }
-.team-avatar {
-  width: 52px; height: 52px; border-radius: 50%;
+.team-photo {
+  width: 110px; height: 110px; border-radius: 50%;
   background: linear-gradient(135deg, #fbeaf0, #ffd6e7);
   border: 2px solid #f4c0d1;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 0.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.team-avatar svg { width: 24px; height: 24px; stroke: #d4547e; fill: none; stroke-width: 1.8; }
-.team-name { font-size: 0.95rem; font-weight: 600; color: #4b1528; }
+.team-photo svg { width: 48px; height: 48px; stroke: #d4547e; fill: none; stroke-width: 1.5; }
+.team-name { font-size: 0.9rem; font-weight: 600; color: #4b1528; line-height: 1.3; }
 .team-role {
-  font-size: 0.78rem; color: #d4547e; font-weight: 500;
+  font-size: 0.74rem; color: #d4547e; font-weight: 500;
   letter-spacing: 0.03em;
 }
-.team-desc { font-size: 0.8rem; color: #72243e; line-height: 1.6; font-weight: 300; margin-top: 0.3rem; }
 
 /* DIVIDER */
 .divider {
@@ -254,6 +257,61 @@ nav {
   .dimensiones { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
 }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #d4547e;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,245,248,0.98);
+  backdrop-filter: blur(16px);
+  z-index: 150;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  text-decoration: none;
+  color: #4b1528;
+  font-size: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: #d4547e; }
+.mobile-close {
+  position: absolute;
+  top: 1.4rem; right: 1.5rem;
+  background: none; border: none;
+  font-size: 1.8rem; color: #d4547e;
+  cursor: pointer; line-height: 1;
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+}
 </style>
 </head>
 <body>
@@ -263,7 +321,7 @@ nav {
     <div class="logo-icon">
       <svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 3-7 7 0 2.5 1.3 4.7 3.2 6L9 20h6l.8-4C17.7 14.7 19 12.5 19 10c0-4-3-7-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="10" y1="17" x2="14" y2="17"/></svg>
     </div>
-    <div class="logo-text">PAP<span>EC</span></div>
+    <div><div class="logo-text">PEP<span>OP</span></div><div class="logo-tagline">Plataforma de Evaluación Psico-Oncológica y Paliativa</div></div>
   </div>
   <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
@@ -271,11 +329,28 @@ nav {
     <li><a href="nosotros.html" class="active">Nosotros</a></li>
     
   </ul>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="index.html" onclick="toggleMenu()">Inicio</a>
+  <a href="cuestionarios.html" onclick="toggleMenu()">Cuestionarios</a>
+  <a href="nosotros.html" onclick="toggleMenu()">Nosotros</a>
+</div>
+<script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+</script>
 
 <div class="page-hero">
   <div class="tag"><span class="tag-dot"></span>Quiénes somos</div>
-  <h1>El equipo detrás de <em>PAPEC</em></h1>
+  <h1>El equipo detrás de <em>PEPOP</em></h1>
   <p class="lead">Somos psicólogas especializadas en psicooncología, comprometidas con acercar herramientas de evaluación clínica de calidad a profesionales y pacientes.</p>
 </div>
 
@@ -285,17 +360,39 @@ nav {
   <div class="section">
     <div class="section-label">El equipo</div>
     <h2>Psicólogas <em>especializadas</em></h2>
-    <p>PAPEC nació de la necesidad de sistematizar y centralizar los instrumentos de evaluación utilizados en el ámbito de la psicooncología. Somos psicólogas y psicooncólogas con formación especializada en el acompañamiento psicológico de personas con cáncer y sus cuidadores.</p>
+    <p>PEPOP nació de la necesidad de sistematizar y centralizar los instrumentos de evaluación utilizados en el ámbito de la psicooncología. Somos psicólogas y psicooncólogas con formación especializada en el acompañamiento psicológico de personas con cáncer y sus cuidadores.</p>
     <p>Nuestra motivación es facilitar el acceso a evaluaciones validadas y de calidad, tanto para profesionales de la salud mental como para los propios pacientes, contribuyendo a una atención psicológica más completa, rigurosa y accesible.</p>
 
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="team-name">Equipo PAPEC</div>
-        <div class="team-role">Psicólogas · Psicooncología</div>
-        <div class="team-desc">Profesionales con formación especializada en evaluación psicológica y acompañamiento en el ámbito oncológico.</div>
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">Ana M.ª Calvo Vilouta</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">María Cea de Vicente</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">María Elisa Espino Ponce</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">Nicole Loughlin</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">Emily Giselle Peña Armijos</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">Beatriz Peral Virumbrales</div>
+        <div class="team-role">Psicóloga · Psicooncología</div>
       </div>
     </div>
   </div>
@@ -305,10 +402,10 @@ nav {
   <!-- OBJETIVO -->
   <div class="section">
     <div class="section-label">Nuestro objetivo</div>
-    <h2>¿Qué es <em>PAPEC</em>?</h2>
+    <h2>¿Qué es <em>PEPOP</em>?</h2>
     <div class="objetivo-block">
-      <p>PAPEC es una plataforma web de acceso abierto que recopila y sistematiza los principales instrumentos de evaluación psicológica empleados en psicooncología. Su objetivo central es identificar, organizar y facilitar el acceso a herramientas validadas para la valoración de distintas dimensiones psicológicas en pacientes oncológicos y sus cuidadores.</p>
-      <p>Cada instrumento cuenta con una ficha técnica detallada que incluye sus características principales y ámbito de aplicación, permitiendo a los profesionales seleccionar la herramienta más adecuada para cada situación clínica.</p>
+      <p>PEPOP — <em>Plataforma de Evaluación Psico-Oncológica y Paliativa</em> — es una plataforma web de acceso abierto que recopila y sistematiza los principales instrumentos de evaluación psicológica empleados en psicooncología. Su objetivo central es identificar, organizar y facilitar el acceso a herramientas validadas para la valoración de distintas dimensiones psicológicas en pacientes oncológicos y sus cuidadores.</p>
+      <p>Cada instrumento cuenta con una ficha técnica detallada que incluye sus características principales, propiedades psicométricas y ámbito de aplicación, permitiendo a los profesionales seleccionar la herramienta más adecuada para cada situación clínica.</p>
     </div>
   </div>
 
@@ -366,8 +463,8 @@ nav {
 
   <!-- CTA -->
   <div class="cta-section">
-    <h3>Explorá los <em>cuestionarios</em></h3>
-    <p>Accedé a todas las evaluaciones disponibles, organizadas por área clínica y listas para compartir con tus pacientes.</p>
+    <h3>Explore los <em>cuestionarios</em></h3>
+    <p>Acceda a todas las evaluaciones disponibles, organizadas por área clínica y listas para compartir con sus pacientes.</p>
     <a href="cuestionarios.html" class="cta-btn">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       Ver cuestionarios
