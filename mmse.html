@@ -14,9 +14,9 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .logo-icon svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; }
 .logo-text { font-weight: 600; font-size: 1.2rem; color: #72243e; letter-spacing: 0.06em; }
 .logo-text span { color: #d4547e; }
-.logo-tagline { font-size: 0.62rem; color: #c08090; font-weight: 300; letter-spacing: 0.03em; margin-top: 1px; }
+.logo-tagline { font-size: 0.62rem; color: #c08090; font-weight: 300; margin-top: 1px; }
 .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
-.nav-links a { text-decoration: none; color: #993556; font-size: 0.88rem; transition: color 0.2s; }
+.nav-links a { text-decoration: none; color: #993556; font-size: 0.88rem; }
 .nav-links a:hover { color: #d4547e; }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 200; }
 .hamburger span { display: block; width: 24px; height: 2px; background: #d4547e; border-radius: 2px; transition: all 0.3s; }
@@ -31,50 +31,50 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .page-hero { background: linear-gradient(135deg, #fbeaf0 0%, #fff5f8 60%, #ffd6e7 100%); padding: 3rem 3.5rem 2.5rem; border-bottom: 1px solid #ffd6e7; }
 .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: #993556; margin-bottom: 1.2rem; }
 .breadcrumb a { text-decoration: none; color: #993556; }
-.breadcrumb a:hover { color: #d4547e; }
-.breadcrumb span { color: #c08090; }
 .tag { display: inline-flex; align-items: center; gap: 0.4rem; background: white; border: 1px solid #f4c0d1; color: #993556; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
 .tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #d4547e; }
-.page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #4b1528; font-weight: 600; margin-bottom: 0.7rem; line-height: 1.2; }
+.page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #4b1528; font-weight: 600; margin-bottom: 0.7rem; }
 .page-hero h1 em { font-style: italic; color: #d4547e; }
 .page-hero p { color: #72243e; font-size: 0.92rem; font-weight: 300; line-height: 1.75; max-width: 640px; }
-.main { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+.main { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 .email-block { background: white; border: 1.5px solid #d4547e; border-radius: 16px; padding: 1.5rem 1.8rem; margin-bottom: 2rem; }
 .email-block label { display: block; font-size: 0.82rem; font-weight: 600; color: #4b1528; margin-bottom: 0.6rem; }
-.email-block input { width: 100%; padding: 0.7rem 1rem; border: 1.5px solid #ffd6e7; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: #4b1528; outline: none; transition: border-color 0.2s; }
+.email-block input { width: 100%; padding: 0.7rem 1rem; border: 1.5px solid #ffd6e7; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: #4b1528; outline: none; }
 .email-block input:focus { border-color: #d4547e; }
 .email-hint { font-size: 0.75rem; color: #993556; margin-top: 0.4rem; font-weight: 300; }
-.instrucciones { background: white; border: 1px solid #ffd6e7; border-radius: 16px; padding: 1.3rem 1.8rem; margin-bottom: 2rem; font-size: 0.88rem; color: #72243e; line-height: 1.7; font-weight: 300; }
-.instrucciones strong { color: #4b1528; font-weight: 600; }
+.aviso { background: #fbeaf0; border: 1px solid #f4c0d1; border-radius: 12px; padding: 1rem 1.3rem; margin-bottom: 2rem; font-size: 0.82rem; color: #72243e; line-height: 1.6; }
 .progress-label { font-size: 0.75rem; color: #993556; margin-bottom: 0.5rem; text-align: right; }
 .progress-bar { background: #ffd6e7; border-radius: 999px; height: 4px; margin-bottom: 2rem; overflow: hidden; }
 .progress-fill { height: 100%; background: #d4547e; border-radius: 999px; transition: width 0.4s ease; }
-.subescala-header { display: flex; align-items: center; gap: 0.7rem; margin: 2rem 0 1rem; }
-.subescala-dot { width: 10px; height: 10px; border-radius: 50%; background: #d4547e; flex-shrink: 0; }
-.subescala-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #4b1528; }
-.pregunta { background: white; border: 1px solid #ffd6e7; border-radius: 16px; padding: 1.4rem 1.8rem; margin-bottom: 0.8rem; transition: border-color 0.2s; }
-.pregunta:hover { border-color: #f4c0d1; }
-.pregunta.respondida { border-color: #f4c0d1; background: #fffafc; }
-.pregunta-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
-.pregunta-num { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #d4547e; flex-shrink: 0; line-height: 1; margin-top: 2px; min-width: 22px; }
-.pregunta-text { font-size: 0.9rem; color: #4b1528; line-height: 1.5; font-weight: 400; }
-.opciones-h { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 0.4rem; }
-.opciones-sino { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-.opcion input[type="radio"] { display: none; }
-.opcion label { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; background: #fff5f8; border: 1.5px solid #ffd6e7; border-radius: 10px; padding: 0.6rem 0.4rem; cursor: pointer; transition: all 0.2s; text-align: center; font-size: 0.75rem; color: #72243e; font-weight: 400; line-height: 1.3; }
-.opcion label:hover { border-color: #f4c0d1; background: #fbeaf0; }
-.opcion input[type="radio"]:checked + label { background: #d4547e; border-color: #d4547e; color: white; font-weight: 500; }
-.submit-area { margin-top: 2.5rem; text-align: center; }
-.btn-submit { background: #d4547e; color: white; border: none; padding: 0.9rem 2.5rem; border-radius: 999px; font-size: 0.95rem; font-weight: 500; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
-.btn-submit:hover { background: #b5446e; transform: translateY(-1px); }
-.btn-submit:disabled { background: #e0a0b5; cursor: not-allowed; transform: none; }
-.submit-note { font-size: 0.78rem; color: #993556; margin-top: 0.8rem; font-weight: 300; }
+.seccion { background: white; border: 1px solid #ffd6e7; border-radius: 16px; padding: 1.4rem 1.8rem; margin-bottom: 1rem; }
+.seccion-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.seccion-titulo { background: #4b1528; color: white; padding: 0.35rem 0.8rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; }
+.seccion-max { font-size: 0.78rem; color: #993556; font-weight: 600; }
+.item { margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid #ffd6e7; }
+.item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.item-label { font-size: 0.85rem; color: #4b1528; margin-bottom: 0.5rem; line-height: 1.5; }
+.item-label em { font-style: italic; color: #72243e; font-size: 0.8rem; }
+.sino-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.sino-btn { padding: 0.4rem 1.1rem; border: 1.5px solid #ffd6e7; border-radius: 8px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: #72243e; background: #fff5f8; transition: all 0.2s; }
+.sino-btn:hover { border-color: #f4c0d1; background: #fbeaf0; }
+.sino-btn.sel-c { background: #d4547e; border-color: #d4547e; color: white; }
+.sino-btn.sel-i { background: #993556; border-color: #993556; color: white; }
+.ref-box { background: #fbeaf0; border: 1px solid #f4c0d1; border-radius: 8px; padding: 0.6rem 1rem; margin-top: 0.5rem; font-size: 0.78rem; color: #72243e; line-height: 1.6; }
+.puntuacion-total { background: white; border: 2px solid #d4547e; border-radius: 16px; padding: 1.4rem 1.8rem; margin-bottom: 1rem; text-align: center; }
+.puntuacion-total h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #4b1528; margin-bottom: 0.5rem; }
+.puntuacion-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: #d4547e; }
+.ref-corte { font-size: 0.78rem; color: #72243e; margin-top: 0.5rem; line-height: 1.7; }
+.submit-area { margin-top: 2rem; text-align: center; }
+.btn-submit { background: #d4547e; color: white; border: none; padding: 0.9rem 2.5rem; border-radius: 999px; font-size: 0.95rem; font-weight: 500; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-submit:hover { background: #b5446e; }
+.btn-submit:disabled { background: #e0a0b5; cursor: not-allowed; }
+.submit-note { font-size: 0.78rem; color: #993556; margin-top: 0.8rem; }
 .error-msg { color: #c0392b; font-size: 0.8rem; margin-top: 0.5rem; display: none; }
 .success-msg { display: none; text-align: center; padding: 3rem 2rem; background: white; border: 1px solid #ffd6e7; border-radius: 20px; margin-top: 2rem; }
 .success-icon { font-size: 3rem; margin-bottom: 1rem; }
 .success-msg h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #4b1528; margin-bottom: 0.5rem; }
 .success-msg p { color: #72243e; font-size: 0.9rem; font-weight: 300; line-height: 1.7; }
-@media (max-width: 600px) { .page-hero { padding: 2rem 1.5rem; } .main { padding: 1.5rem 1rem 3.5rem; } .pregunta { padding: 1rem; } }
+@media (max-width: 600px) { .page-hero { padding: 2rem 1.5rem; } .main { padding: 1.5rem 1rem 3.5rem; } .seccion { padding: 1rem; } }
 </style>
 </head>
 <body>
@@ -88,7 +88,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <li><a href="cuestionarios.html">Cuestionarios</a></li>
     <li><a href="nosotros.html">Nosotros</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
@@ -96,111 +96,372 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <a href="cuestionarios.html" onclick="toggleMenu()">Cuestionarios</a>
   <a href="nosotros.html" onclick="toggleMenu()">Nosotros</a>
 </div>
+
 <div class="page-hero">
-  <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>Mini Examen del Estado Mental (MMSE)</span></div>
+  <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>MMSE</span></div>
   <div class="tag"><span class="tag-dot"></span>Síntomas Específicos</div>
-  <h1>Mini Examen del Estado Mental (<em>MMSE</em>)</h1>
-  <p>Este cuestionario evalúa el estado cognitivo general. Cada ítem se puntúa como correcto (1) o incorrecto (0). La puntuación máxima es 30. Administrado por el profesional.</p>
+  <h1>Mini Examen del Estado <em>Mental</em> (MMSE)</h1>
+  <p>Basado en Folstein et al. (1975), Lobo et al. (1979). Administrado por el profesional. Puntuación máxima: 30 puntos.</p>
 </div>
+
 <div class="main">
   <div class="email-block">
     <label for="email-psicologo">📧 Email del psicólogo/a</label>
-    <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
-    <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
+    <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkProgress()">
+    <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar la evaluación.</div>
   </div>
-  <div class="instrucciones"><strong>Instrucciones:</strong> Este cuestionario evalúa el estado cognitivo general. Cada ítem se puntúa como correcto (1) o incorrecto (0). La puntuación máxima es 30. Administrado por el profesional.</div>
-  <div class="progress-label" id="progressLabel">0 de 1812 preguntas respondidas</div>
+  <div class="aviso">⚕️ <strong>Administrado por profesional.</strong> Puntúe cada ítem como correcto (1) o incorrecto (0) según la respuesta del paciente.</div>
+  <div class="progress-label" id="progressLabel">Puntuación actual: 0 / 30</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-  <form id="mainForm"><div id="preguntasContainer"></div>
-    <div class="submit-area">
-      <button type="button" class="btn-submit" id="btnSubmit" onclick="enviarFormulario()" disabled>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        Enviar respuestas
-      </button>
-      <div class="submit-note">Sus respuestas se enviarán de forma confidencial al profesional indicado.</div>
-      <div class="error-msg" id="errorMsg">Por favor, complete todas las preguntas y el email del psicólogo/a antes de enviar.</div>
+
+  <!-- ORIENTACIÓN TEMPORAL -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">ORIENTACIÓN TEMPORAL</div>
+      <div class="seccion-max">Máx. 5</div>
     </div>
-  </form>
+    <div class="item">
+      <div class="item-label">¿En qué año estamos?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('ot_anio',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('ot_anio',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué estación?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('ot_estacion',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('ot_estacion',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué día (fecha)?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('ot_dia',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('ot_dia',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué mes?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('ot_mes',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('ot_mes',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué día de la semana?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('ot_diasem',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('ot_diasem',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIENTACIÓN ESPACIAL -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">ORIENTACIÓN ESPACIAL</div>
+      <div class="seccion-max">Máx. 5</div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué hospital (o lugar) estamos?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('oe_lugar',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('oe_lugar',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué piso (o planta, sala, servicio)?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('oe_piso',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('oe_piso',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué pueblo (ciudad)?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('oe_ciudad',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('oe_ciudad',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué provincia estamos?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('oe_provincia',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('oe_provincia',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">¿En qué país (o nación, autonomía)?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('oe_pais',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('oe_pais',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIJACIÓN / RECUERDO INMEDIATO -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">FIJACIÓN — Recuerdo Inmediato</div>
+      <div class="seccion-max">Máx. 3</div>
+    </div>
+    <div class="ref-box">Nombrar tres palabras <strong>Peseta — Caballo — Manzana</strong> (o Balón — Bandera — Árbol) a razón de 1 por segundo. Pedir al paciente que las repita. Esta primera repetición otorga la puntuación. Continuar diciéndolas hasta que el sujeto repita las 3 (máximo 6 veces).</div>
+    <div class="item" style="margin-top:0.8rem;">
+      <div class="item-label">Peseta (o Balón)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('fij_p1',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('fij_p1',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">Caballo (o Bandera)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('fij_p2',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('fij_p2',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">Manzana (o Árbol)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('fij_p3',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('fij_p3',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATENCIÓN Y CÁLCULO -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">ATENCIÓN — CÁLCULO</div>
+      <div class="seccion-max">Máx. 5</div>
+    </div>
+    <div class="ref-box">«Si tiene 30 pesetas y me va dando de tres en tres, ¿cuántas le van quedando?» Detener tras 5 sustracciones. Si el sujeto no puede, pedir que deletree MUNDO al revés.</div>
+    <div class="item" style="margin-top:0.8rem;">
+      <div class="item-label">30 — 3 = 27</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('calc_1',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('calc_1',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">27 — 3 = 24</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('calc_2',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('calc_2',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">24 — 3 = 21</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('calc_3',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('calc_3',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">21 — 3 = 18</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('calc_4',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('calc_4',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">18 — 3 = 15</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('calc_5',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('calc_5',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECUERDO DIFERIDO -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">RECUERDO DIFERIDO</div>
+      <div class="seccion-max">Máx. 3</div>
+    </div>
+    <div class="ref-box">Preguntar por las tres palabras mencionadas anteriormente.</div>
+    <div class="item" style="margin-top:0.8rem;">
+      <div class="item-label">Peseta (o Balón)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('rec_p1',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('rec_p1',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">Caballo (o Bandera)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('rec_p2',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('rec_p2',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label">Manzana (o Árbol)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('rec_p3',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('rec_p3',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LENGUAJE -->
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-titulo">LENGUAJE</div>
+      <div class="seccion-max">Máx. 9</div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Denominación:</strong> Mostrar un lápiz o bolígrafo. ¿Qué es esto?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_lapiz',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_lapiz',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Denominación:</strong> Mostrar un reloj de pulsera. ¿Qué es esto?</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_reloj',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_reloj',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Repetición:</strong> «Ni sí, ni no, ni pero» (o «En un trigal había 5 perros»)</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_rep',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_rep',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Órdenes:</strong> «Coja un papel con la mano derecha, dóblelo por la mitad, y póngalo en el suelo»</div>
+      <div class="item-label" style="margin-top:0.4rem;color:#72243e;font-size:0.8rem;">(3 puntos: uno por cada acción correcta)</div>
+      <div class="sino-row" style="margin-top:0.4rem;">
+        <button class="sino-btn" onclick="sel('ord_1',1,this)">Coge con mano derecha (1)</button>
+        <button class="sino-btn" onclick="sel('ord_1',0,this)">Incorrecto (0)</button>
+      </div>
+      <div class="sino-row" style="margin-top:0.4rem;">
+        <button class="sino-btn" onclick="sel('ord_2',1,this)">Dobla por la mitad (1)</button>
+        <button class="sino-btn" onclick="sel('ord_2',0,this)">Incorrecto (0)</button>
+      </div>
+      <div class="sino-row" style="margin-top:0.4rem;">
+        <button class="sino-btn" onclick="sel('ord_3',1,this)">Pone en el suelo (1)</button>
+        <button class="sino-btn" onclick="sel('ord_3',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Lectura:</strong> Escribir legiblemente en papel «Cierre los ojos». El paciente debe leerlo y ejecutarlo.</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_lectura',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_lectura',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Escritura:</strong> Que escriba una frase (con sujeto y predicado).</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_escritura',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_escritura',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-label"><strong>Copia:</strong> Dibujar 2 pentágonos intersectados. Para puntuar 1 punto deben estar presentes los 10 ángulos y la intersección.</div>
+      <div class="sino-row">
+        <button class="sino-btn" onclick="sel('leng_copia',1,this)">Correcto (1)</button>
+        <button class="sino-btn" onclick="sel('leng_copia',0,this)">Incorrecto (0)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUNTUACIÓN TOTAL -->
+  <div class="puntuacion-total">
+    <h3>Puntuación Total</h3>
+    <div class="puntuacion-num" id="totalNum">0 / 30</div>
+    <div class="ref-corte">
+      <strong>Puntuaciones de referencia:</strong><br>
+      ≥ 27: Normal · 24 o menos: Sospecha patológica · 12-24: Deterioro · 9-12: Demencia
+    </div>
+  </div>
+
+  <div class="submit-area">
+    <button type="button" class="btn-submit" id="btnSubmit" onclick="enviarFormulario()" disabled>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Enviar evaluación
+    </button>
+    <div class="submit-note">Los resultados se enviarán de forma confidencial al profesional indicado.</div>
+    <div class="error-msg" id="errorMsg">Por favor, complete todos los ítems y el email del psicólogo/a antes de enviar.</div>
+  </div>
   <div class="success-msg" id="successMsg">
     <div class="success-icon">✅</div>
-    <h2>¡Cuestionario enviado!</h2>
-    <p>Sus respuestas han sido enviadas correctamente al profesional indicado.<br>Puede cerrar esta página.</p>
+    <h2>¡Evaluación enviada!</h2>
+    <p>Los resultados han sido enviados correctamente al profesional indicado.<br>Puede cerrar esta página.</p>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
-const EMAILJS_SERVICE_ID  = 'pepop';
-const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
-emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['ORIENTACIÓN TEMPORAL — ¿En qué año estamos?', 'ORIENTACIÓN TEMPORAL — ¿En qué estación del año estamos?', 'ORIENTACIÓN TEMPORAL — ¿En qué día (fecha) estamos?', 'ORIENTACIÓN TEMPORAL — ¿En qué mes estamos?', 'ORIENTACIÓN TEMPORAL — ¿En qué día de la semana estamos?', 'ORIENTACIÓN ESPACIAL — ¿En qué hospital (o lugar) estamos?', 'ORIENTACIÓN ESPACIAL — ¿En qué piso (o planta, sala, servicio)?', 'ORIENTACIÓN ESPACIAL — ¿En qué pueblo (ciudad) estamos?', 'ORIENTACIÓN ESPACIAL — ¿En qué provincia estamos?', 'ORIENTACIÓN ESPACIAL — ¿En qué país (o nación, autonomía) estamos?', 'FIJACIÓN — Repite la palabra: Peseta (o Balón)', 'FIJACIÓN — Repite la palabra: Caballo (o Bandera)', 'FIJACIÓN — Repite la palabra: Manzana (o Árbol)', 'ATENCIÓN-CÁLCULO — 30 menos 3 (primera sustracción)', 'ATENCIÓN-CÁLCULO — Resultado menos 3 (segunda sustracción)', 'ATENCIÓN-CÁLCULO — Resultado menos 3 (tercera sustracción)', 'ATENCIÓN-CÁLCULO — Resultado menos 3 (cuarta sustracción)', 'ATENCIÓN-CÁLCULO — Resultado menos 3 (quinta sustracción)', 'RECUERDO DIFERIDO — ¿Recuerda la primera palabra? (Peseta / Balón)', 'RECUERDO DIFERIDO — ¿Recuerda la segunda palabra? (Caballo / Bandera)', 'RECUERDO DIFERIDO — ¿Recuerda la tercera palabra? (Manzana / Árbol)', 'LENGUAJE-DENOMINACIÓN — Nombra correctamente el lápiz o bolígrafo', 'LENGUAJE-DENOMINACIÓN — Nombra correctamente el reloj de pulsera', 'LENGUAJE-REPETICIÓN — Repite correctamente: «Ni sí, ni no, ni pero»', 'LENGUAJE-ÓRDENES — Coge el papel con la mano derecha', 'LENGUAJE-ÓRDENES — Dobla el papel por la mitad', 'LENGUAJE-ÓRDENES — Pone el papel en el suelo', 'LENGUAJE-LECTURA — Lee y ejecuta: «Cierre los ojos»', 'LENGUAJE-ESCRITURA — Escribe una frase con sujeto y predicado', 'LENGUAJE-COPIA — Copia correctamente el dibujo de dos pentágonos entrelazados'];
-const opciones  = ['Correcto (1)', 'Incorrecto (0)'];
-const totalPreguntas = preguntas.length;
-const respuestas = new Array(totalPreguntas).fill(null);
-function renderPreguntas() {
-  const container = document.getElementById('preguntasContainer');
-  preguntas.forEach((p, i) => {
-    const div = document.createElement('div');
-    div.className = 'pregunta';
-    div.id = 'pregunta-' + i;
-    const opHtml = opciones.map((op, j) => `
-      <div class="opcion">
-        <input type="radio" name="p${i}" id="p${i}_${j}" value="${op}" onchange="seleccionar(${i}, '${op}')">
-        <label for="p${i}_${j}">${op}</label>
-      </div>`).join('');
-    div.innerHTML = `
-      <div class="pregunta-header">
-        <div class="pregunta-num">${i+1}</div>
-        <div class="pregunta-text">${p}</div>
-      </div>
-      <div class="opciones-h" style="--cols:${opciones.length}">${opHtml}</div>`;
-    container.appendChild(div);
-  });
+emailjs.init('PXEw-jfntiZISPx6I');
+const scores = {};
+const totalItems = 30;
+
+function sel(key, val, btn) {
+  scores[key] = val;
+  const row = btn.parentElement;
+  row.querySelectorAll('.sino-btn').forEach(b => b.className = 'sino-btn');
+  btn.classList.add(val === 1 ? 'sel-c' : 'sel-i');
+  updateTotal();
 }
-function seleccionar(idx, valor) {
-  respuestas[idx] = valor;
-  document.getElementById('pregunta-' + idx).classList.add('respondida');
-  actualizarProgreso();
-}
-function actualizarProgreso() {
-  const r = respuestas.filter(x => x !== null).length;
-  document.getElementById('progressFill').style.width = (r/totalPreguntas*100) + '%';
-  document.getElementById('progressLabel').textContent = r + ' de ' + totalPreguntas + ' preguntas respondidas';
+
+function updateTotal() {
+  const total = Object.values(scores).reduce((a,b) => a+b, 0);
+  const answered = Object.keys(scores).length;
+  document.getElementById('progressFill').style.width = (answered/totalItems*100) + '%';
+  document.getElementById('progressLabel').textContent = 'Puntuación actual: ' + total + ' / 30 (' + answered + ' de ' + totalItems + ' ítems puntuados)';
+  document.getElementById('totalNum').textContent = total + ' / 30';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  document.getElementById('btnSubmit').disabled = !(answered >= totalItems && emailOk);
 }
-function checkEmail() { actualizarProgreso(); }
+
+function checkProgress() { updateTotal(); }
+
 async function enviarFormulario() {
   const email = document.getElementById('email-psicologo').value;
-  if (!email.includes('@') || respuestas.some(r => r === null)) {
-    document.getElementById('errorMsg').style.display = 'block'; return;
-  }
-  document.getElementById('errorMsg').style.display = 'none';
-  document.getElementById('btnSubmit').disabled = true;
-  document.getElementById('btnSubmit').textContent = 'Enviando...';
-  let resumen = '';
-  preguntas.forEach((p, i) => { resumen += (i+1) + '. ' + p + ' → ' + respuestas[i] + '\n'; });
+  if (!email.includes('@')) { document.getElementById('errorMsg').style.display='block'; return; }
+  document.getElementById('errorMsg').style.display='none';
+  document.getElementById('btnSubmit').disabled=true;
+  document.getElementById('btnSubmit').textContent='Enviando...';
+  const total = Object.values(scores).reduce((a,b)=>a+b,0);
+  const secciones = {
+    'ORIENTACIÓN TEMPORAL': ['ot_anio','ot_estacion','ot_dia','ot_mes','ot_diasem'],
+    'ORIENTACIÓN ESPACIAL': ['oe_lugar','oe_piso','oe_ciudad','oe_provincia','oe_pais'],
+    'FIJACIÓN': ['fij_p1','fij_p2','fij_p3'],
+    'ATENCIÓN/CÁLCULO': ['calc_1','calc_2','calc_3','calc_4','calc_5'],
+    'RECUERDO DIFERIDO': ['rec_p1','rec_p2','rec_p3'],
+    'LENGUAJE': ['leng_lapiz','leng_reloj','leng_rep','ord_1','ord_2','ord_3','leng_lectura','leng_escritura','leng_copia']
+  };
+  let resumen = 'PUNTUACIÓN TOTAL: ' + total + '/30\n\n';
+  Object.entries(secciones).forEach(([sec, keys]) => {
+    const pts = keys.reduce((a,k) => a+(scores[k]||0), 0);
+    resumen += sec + ': ' + pts + '/' + keys.length + '\n';
+  });
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    await emailjs.send('pepop','template_b52eu95',{
       email_psicologo: email,
       cuestionario: 'Mini Examen del Estado Mental (MMSE)',
       respuestas: resumen
     });
-    document.getElementById('mainForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('successMsg').style.display='block';
+    document.getElementById('successMsg').scrollIntoView({behavior:'smooth'});
   } catch(e) {
-    document.getElementById('btnSubmit').disabled = false;
-    document.getElementById('btnSubmit').innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Enviar respuestas';
-    document.getElementById('errorMsg').textContent = 'Ha ocurrido un error al enviar. Por favor, inténtelo de nuevo.';
-    document.getElementById('errorMsg').style.display = 'block';
+    document.getElementById('btnSubmit').disabled=false;
+    document.getElementById('btnSubmit').innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Enviar evaluación';
+    document.getElementById('errorMsg').textContent='Error al enviar. Inténtelo de nuevo.';
+    document.getElementById('errorMsg').style.display='block';
   }
 }
+
 function toggleMenu() {
   document.getElementById('hamburger').classList.toggle('open');
   document.getElementById('mobileMenu').classList.toggle('open');
   document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
 }
-renderPreguntas();
 </script>
 </body>
 </html>
