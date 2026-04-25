@@ -100,7 +100,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>Inventario de Depresión de Beck II (BDI-II)</span></div>
   <div class="tag"><span class="tag-dot"></span>Medidas de Screening y Malestar Emocional</div>
   <h1>Inventario de Depresión de Beck II (<em>BDI-II</em>)</h1>
-  <p>Este cuestionario consta de 21 grupos de afirmaciones. Por favor, lea con atención cada uno de ellos. Elija la opción que mejor describa el modo como se ha sentido las últimas dos semanas, incluyendo el día de hoy.</p>
+  <p>Este cuestionario consta de 21 grupos de afirmaciones. Elija la opción que mejor describa cómo se ha sentido durante las últimas dos semanas, incluyendo el día de hoy.</p>
 </div>
 <div class="main">
   <div class="email-block">
@@ -108,8 +108,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
-  <div class="instrucciones"><strong>Instrucciones:</strong> Este cuestionario consta de 21 grupos de afirmaciones. Por favor, lea con atención cada uno de ellos. Elija la opción que mejor describa el modo como se ha sentido las últimas dos semanas, incluyendo el día de hoy.</div>
-  <div class="progress-label" id="progressLabel">0 de 730 preguntas respondidas</div>
+  <div class="instrucciones"><strong>Instrucciones:</strong> Este cuestionario consta de 21 grupos de afirmaciones. Elija la opción que mejor describa cómo se ha sentido durante las últimas dos semanas, incluyendo el día de hoy.</div>
+  <div class="progress-label" id="progressLabel">0 de 1277 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   <form id="mainForm"><div id="preguntasContainer"></div>
     <div class="submit-area">
@@ -133,7 +133,7 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['Tristeza: estado de ánimo en las últimas dos semanas.', 'Pesimismo: perspectiva sobre el futuro.', 'Fracaso: sensación de fracaso personal.', 'Pérdida de Placer: disfrute de las cosas habituales.', 'Sentimientos de Culpa.', 'Sentimientos de Castigo.', 'Disconformidad con uno/a mismo/a.', 'Autocrítica.', 'Pensamientos o Deseos Suicidas.', 'Llanto.', 'Agitación: inquietud o tensión.', 'Pérdida de Interés en otras actividades o personas.', 'Indecisión: dificultad para tomar decisiones.', 'Desvalorización: sentido de valía personal.', 'Pérdida de Energía.', 'Cambios en los Hábitos de Sueño.', 'Irritabilidad.', 'Cambios en el Apetito.', 'Dificultad de Concentración.', 'Cansancio o Fatiga.', 'Pérdida de Interés en el Sexo.'];
+const preguntas = ['Tristeza: ¿Cómo se ha sentido de triste las últimas dos semanas?', 'Pesimismo: ¿Cómo se siente respecto a su futuro?', 'Fracaso: ¿Cómo se siente respecto a sus fracasos pasados?', 'Pérdida de placer: ¿Cuánto placer obtiene de las cosas que solía disfrutar?', 'Sentimientos de culpa: ¿Se siente culpable?', 'Sentimientos de castigo: ¿Siente que está siendo castigado/a?', 'Disconformidad con uno/a mismo/a: ¿Cómo se siente respecto a usted mismo/a?', 'Autocrítica: ¿Se critica o culpa a sí mismo/a?', 'Pensamientos o deseos suicidas: ¿Tiene pensamientos de hacerse daño o de suicidio?', 'Llanto: ¿Llora más de lo habitual?', 'Agitación: ¿Se siente más inquieto/a o agitado/a de lo habitual?', 'Pérdida de interés: ¿Ha perdido el interés en otras personas o actividades?', 'Indecisión: ¿Tiene dificultades para tomar decisiones?', 'Desvalorización: ¿Se siente valioso/a?', 'Pérdida de energía: ¿Cuánta energía tiene?', 'Cambios en los hábitos de sueño: ¿Cómo ha dormido?', 'Irritabilidad: ¿Está más irritable de lo habitual?', 'Cambios en el apetito: ¿Ha cambiado su apetito?', 'Dificultad de concentración: ¿Puede concentrarse bien?', 'Cansancio o fatiga: ¿Se cansa o fatiga más de lo habitual?', 'Pérdida de interés en el sexo: ¿Ha notado cambios en su interés por el sexo?'];
 const opciones  = ['0', '1', '2', '3'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
