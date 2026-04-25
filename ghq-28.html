@@ -158,6 +158,11 @@ nav {
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
 
   <div class="instrucciones">
     <strong>Instrucciones:</strong> Para cada pregunta, seleccione la opción que mejor describa su situación durante las últimas semanas. Escala: 0 = Mejor/No en absoluto · 1 = Igual que lo habitual · 2 = Bastante más que lo habitual · 3 = Mucho más que lo habitual.
@@ -237,13 +242,15 @@ function seleccionar(idx, valor) {
   document.getElementById('progressFill').style.width = (r/totalPreguntas*100) + '%';
   document.getElementById('progressLabel').textContent = r + ' de ' + totalPreguntas + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk && numPacOk);
 }
 
 function checkEmail() {
   const r = respuestas.filter(x => x !== null).length;
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk && numPacOk);
 }
 
 async function enviarFormulario() {
@@ -266,6 +273,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Cuestionario General de Salud de Goldberg (GHQ-28)',
       respuestas: resumen
     });
@@ -400,7 +409,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = `${respondidas} de ${totalPreguntas} preguntas respondidas`;
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk && numPacOk);
 }
 
 function checkEmail() { actualizarProgreso(); }
@@ -429,6 +439,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala de Miedo a la Muerte de Collett-Lester (CL-FODS)',
       respuestas: resumen
     });

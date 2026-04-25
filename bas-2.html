@@ -113,6 +113,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
   <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, indique con qué frecuencia las siguientes afirmaciones son ciertas para usted.</div>
   <div class="progress-label" id="progressLabel">0 de 10 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -173,7 +178,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = respondidas + ' de ' + totalPreguntas + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk && numPacOk);
 }
 
 function checkEmail() { actualizarProgreso(); }
@@ -192,6 +198,16 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
+      cuestionario: nombreCuestionario,
+      respuestas: resumen
+    });
+    // Copia a la plataforma
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      email_psicologo: 'plataformadeevaluacion@gmail.com',
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: nombreCuestionario,
       respuestas: resumen
     });

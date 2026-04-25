@@ -158,9 +158,14 @@ nav {
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
 
   <div class="instrucciones">
-    <strong>Instrucciones:</strong> ¿Qué grado de preocupación o ansiedad tiene usted por los siguientes aspectos de la muerte y del proceso de morir? Lea cada frase y contéstela rápidamente. No utilice demasiado tiempo pensando en su respuesta. Se trata de expresar la primera impresión de cómo piensa ahora mismo. Marque el número que mejor representa su sentimiento: <strong> 1 = Nada · 2 · 3 · 4 = Moderado · 5 = Mucho</strong>
+    <strong>Instrucciones:</strong> ¿Qué grado de preocupación o ansiedad tiene usted por los siguientes aspectos de la muerte y del proceso de morir? Lea cada frase y contéstela rápidamente. No utilice demasiado tiempo pensando en su respuesta. Se trata de expresar la primera impresión de cómo piensa ahora mismo. Marque el número que mejor representa su sentimiento: <strong>1 = Nada · 2 · 3 = Moderado · 4 · 5 = Mucho</strong>
   </div>
 
   <div class="progress-label" id="progressLabel">0 de 28 preguntas respondidas</div>
@@ -299,7 +304,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = `${respondidas} de ${totalPreguntas} preguntas respondidas`;
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(respondidas === totalPreguntas && emailOk && numPacOk);
 }
 
 function checkEmail() { actualizarProgreso(); }
@@ -328,6 +334,16 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
+      cuestionario: 'Escala de Miedo a la Muerte de Collett-Lester (CL-FODS)',
+      respuestas: resumen
+    });
+    // Copia a la plataforma
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      email_psicologo: 'plataformadeevaluacion@gmail.com',
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala de Miedo a la Muerte de Collett-Lester (CL-FODS)',
       respuestas: resumen
     });

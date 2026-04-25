@@ -122,6 +122,11 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkProgress()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
 
   <div class="progress-label" id="progressLabel">0 de 17 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -240,9 +245,10 @@ function checkProgress() {
   document.getElementById('progressFill').style.width = (answered/total*100) + '%';
   document.getElementById('progressLabel').textContent = answered + ' de ' + total + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
   const allA = respuestas.slice(0,15).every(r => r !== null);
   const cDone = respuestas[16] !== null;
-  document.getElementById('btnSubmit').disabled = !(emailOk && allA && cDone);
+  document.getElementById('btnSubmit').disabled = !(emailOk && numPacOk && allA && cDone);
 }
 
 async function enviarFormulario() {
@@ -260,6 +266,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send('pepop','template_b52eu95',{
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Cuestionario de Dolor McGill (SF-MPQ)',
       respuestas: resumen
     });

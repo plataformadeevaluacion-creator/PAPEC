@@ -416,7 +416,8 @@ function updateTotal() {
   document.getElementById('progressLabel').textContent = 'Puntuación actual: ' + total + ' / 30 (' + answered + ' de ' + totalItems + ' ítems puntuados)';
   document.getElementById('totalNum').textContent = total + ' / 30';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(answered >= totalItems && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(answered >= totalItems && emailOk && numPacOk);
 }
 
 function checkProgress() { updateTotal(); }
@@ -444,6 +445,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send('pepop','template_b52eu95',{
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Mini Examen del Estado Mental (MMSE)',
       respuestas: resumen
     });

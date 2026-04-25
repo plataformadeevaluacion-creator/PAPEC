@@ -300,7 +300,9 @@ Suicidio consumado: ${v('b5')} — Fecha: ${v('b5f')}
 Letalidad: ${v('b5l')}
 Letalidad potencial: ${v('b5p')}`;
   try {
-    await emailjs.send('pepop','template_b52eu95',{ email_psicologo: email, cuestionario: 'Escala Columbia C-SSRS', respuestas: r });
+    await emailjs.send('pepop','template_b52eu95',{ email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado', cuestionario: 'Escala Columbia C-SSRS', respuestas: r });
     document.getElementById('successMsg').style.display='block';
     document.getElementById('successMsg').scrollIntoView({behavior:'smooth'});
   } catch(e) {

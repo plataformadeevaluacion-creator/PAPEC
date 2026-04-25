@@ -98,6 +98,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
 
   <div class="pregunta">
     <div class="pregunta-text">Por favor, indique en la siguiente escala cuál es su nivel de miedo por volver a tener cáncer</div>
@@ -145,12 +150,14 @@ function seleccionar(v) {
   valorSeleccionado = v;
   document.getElementById('scaleVal').textContent = v;
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !emailOk;
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(emailOk && numPacOk);
 }
 
 function checkEmail() {
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(valorSeleccionado !== null && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(valorSeleccionado !== null && emailOk && numPacOk);
 }
 
 async function enviarFormulario() {
@@ -164,6 +171,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send('pepop', 'template_b52eu95', {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala General del Miedo a la Recurrencia del Cáncer (EGMRC)',
       respuestas: `Nivel de miedo a la recurrencia (0-100): ${valorSeleccionado}`
     });

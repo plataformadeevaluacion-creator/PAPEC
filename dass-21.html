@@ -100,7 +100,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>Escala de Depresión, Ansiedad y Estrés (DASS-21)</span></div>
   <div class="tag"><span class="tag-dot"></span>Medidas de Screening y Malestar Emocional</div>
   <h1>Escala de Depresión, Ansiedad y Estrés (<em>DASS-21</em>)</h1>
-  <p>Por favor, lea cada una de las siguientes frases e indique en qué medida cada frase ha sido aplicable a usted durante los últimos 7 días. (0=Nada aplicable a mí, 1=Aplicable a mí en algún grado, o una pequeña parte del tiempo, 2=Aplicable a mí en un grado considerable, o una buena parte del tiempo, 3=Muy aplicable a mí, o aplicable la mayor parte del tiempo)</p>
+  <p>Por favor, lea cada una de las siguientes frases e indique en qué medida cada frase ha sido aplicable a usted durante los últimos 7 días. (0=Nada aplicable, 1=Aplicable en algún grado, 2=Aplicable en un grado considerable, 3=Muy aplicable)</p>
 </div>
 <div class="main">
   <div class="email-block">
@@ -108,7 +108,12 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
-  <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, lea cada una de las siguientes frases e indique en qué medida cada frase ha sido aplicable a usted durante los últimos 7 días. (0=Nada aplicable a mí, 1=Aplicable a mí en algún grado, o una pequeña parte del tiempo 2=Aplicable a mí en un grado considerable, o una buena parte del tiempo, 3=Muy aplicable a mí, o aplicable la mayor parte del tiempo)</div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
+  <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, lea cada una de las siguientes frases e indique en qué medida cada frase ha sido aplicable a usted durante los últimos 7 días. (0=Nada aplicable, 1=Aplicable en algún grado, 2=Aplicable en un grado considerable, 3=Muy aplicable)</div>
   <div class="progress-label" id="progressLabel">0 de 1432 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   <form id="mainForm"><div id="preguntasContainer"></div>
@@ -133,7 +138,7 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['  Me ha costado mucho descargar la tensión.', ' He notado la boca seca.', ' No he podido sentir ninguna emoción positiva.', ' He tenido dificultades para respirar (respiración excesivamente rápida, falta de aliento sin haber hecho esfuerzo físico).', 'Me ha resultado difícil tener iniciativa para hacer cosas.', '  He tendido a reaccionar exageradamente ante las situaciones.', ' He tenido temblores (p.ej., en las manos).', '  He sentido que estaba gastando una gran cantidad de energía.', ' He estado preocupado/a por situaciones en las que pudiera ser presa del pánico y hacer el ridículo.', ' He sentido que no había nada que me ilusionara.', '  Me he sentido agitado/a.', '  Me ha resultado difícil relajarme.', ' Me he sentido desanimado/a y triste.', '  No he tolerado nada que me impidiera seguir con lo que estaba haciendo.', ' He sentido que estaba al borde del pánico.', ' He sido incapaz de entusiasmarme por nada.', ' He sentido que no valía mucho como persona.', '  He tendido a sentirme enfadado/a con facilidad.', ' He notado cambios en mi corazón sin hacer esfuerzo físico (p.ej., aumento del ritmo cardíaco).', ' Me he sentido asustado/a sin una razón de peso.', ' He sentido que la vida no tenía ningún sentido.'];
+const preguntas = ['[Estrés] Me ha costado mucho descargar la tensión.', '[Ansiedad] He notado la boca seca.', '[Depresión] No he podido sentir ninguna emoción positiva.', '[Ansiedad] He tenido dificultades para respirar (respiración excesivamente rápida, falta de aliento sin haber hecho esfuerzo físico).', '[Depresión] Me ha resultado difícil tener iniciativa para hacer cosas.', '[Estrés] He tendido a reaccionar exageradamente ante las situaciones.', '[Ansiedad] He tenido temblores (p.ej., en las manos).', '[Estrés] He sentido que estaba gastando una gran cantidad de energía.', '[Ansiedad] He estado preocupado/a por situaciones en las que pudiera ser presa del pánico y hacer el ridículo.', '[Depresión] He sentido que no había nada que me ilusionara.', '[Estrés] Me he sentido agitado/a.', '[Estrés] Me ha resultado difícil relajarme.', '[Depresión] Me he sentido desanimado/a y triste.', '[Estrés] No he tolerado nada que me impidiera seguir con lo que estaba haciendo.', '[Ansiedad] He sentido que estaba al borde del pánico.', '[Depresión] He sido incapaz de entusiasmarme por nada.', '[Depresión] He sentido que no valía mucho como persona.', '[Estrés] He tendido a sentirme enfadado/a con facilidad.', '[Ansiedad] He notado cambios en mi corazón sin hacer esfuerzo físico (p.ej., aumento del ritmo cardíaco).', '[Ansiedad] Me he sentido asustado/a sin una razón de peso.', '[Depresión] He sentido que la vida no tenía ningún sentido.'];
 const opciones  = ['Nada (0)', 'Algo (1)', 'Bastante (2)', 'Mucho (3)'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
@@ -167,7 +172,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = (r/totalPreguntas*100) + '%';
   document.getElementById('progressLabel').textContent = r + ' de ' + totalPreguntas + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk && numPacOk);
 }
 function checkEmail() { actualizarProgreso(); }
 async function enviarFormulario() {
@@ -183,6 +189,16 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
+      cuestionario: 'Escala de Depresión, Ansiedad y Estrés (DASS-21)',
+      respuestas: resumen
+    });
+    // Copia a la plataforma
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      email_psicologo: 'plataformadeevaluacion@gmail.com',
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala de Depresión, Ansiedad y Estrés (DASS-21)',
       respuestas: resumen
     });

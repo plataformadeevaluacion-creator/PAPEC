@@ -108,6 +108,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
   <div class="instrucciones"><strong>Instrucciones:</strong> Lea cada pregunta y marque la respuesta que usted considere que coincide con su propio estado emocional en la última semana. No es necesario que piense mucho tiempo cada respuesta; las respuestas espontáneas tienen más valor.</div>
   <div class="progress-label" id="progressLabel">0 de 909 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -133,7 +138,7 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = [' Me siento tenso/a o nervioso/a.', ' Sigo disfrutando de las cosas como siempre.', ' Siento una especie de temor como si algo malo fuera a suceder.', ' Soy capaz de reírme y ver el lado gracioso de las cosas.', ' Tengo la cabeza llena de preocupaciones.', ' Me siento alegre.', ' Soy capaz de permanecer sentado/a tranquilo/a y relajado/a.', ' Me siento lento/a y torpe.', ' Experimento una desagradable sensación de «nervios y hormigueos» en el estómago.', ' He perdido el interés por mi aspecto personal.', ' Me siento inquieto/a como si no pudiera parar de moverme.', ' Espero las cosas con ilusión.', ' Experimento de repente sensaciones de gran angustia o temor.', ' Soy capaz de disfrutar con un buen libro o con un buen programa de radio o televisión.'];
+const preguntas = ['[Ansiedad] Me siento tenso/a o nervioso/a.', '[Depresión] Sigo disfrutando de las cosas como siempre.', '[Ansiedad] Siento una especie de temor como si algo malo fuera a suceder.', '[Depresión] Soy capaz de reírme y ver el lado gracioso de las cosas.', '[Ansiedad] Tengo la cabeza llena de preocupaciones.', '[Depresión] Me siento alegre.', '[Ansiedad] Soy capaz de permanecer sentado/a tranquilo/a y relajado/a.', '[Depresión] Me siento lento/a y torpe.', '[Ansiedad] Experimento una desagradable sensación de «nervios y hormigueos» en el estómago.', '[Depresión] He perdido el interés por mi aspecto personal.', '[Ansiedad] Me siento inquieto/a como si no pudiera parar de moverme.', '[Depresión] Espero las cosas con ilusión.', '[Ansiedad] Experimento de repente sensaciones de gran angustia o temor.', '[Depresión] Soy capaz de disfrutar con un buen libro o con un buen programa de radio o televisión.'];
 const opciones  = ['0', '1', '2', '3'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
@@ -167,7 +172,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = (r/totalPreguntas*100) + '%';
   document.getElementById('progressLabel').textContent = r + ' de ' + totalPreguntas + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk && numPacOk);
 }
 function checkEmail() { actualizarProgreso(); }
 async function enviarFormulario() {
@@ -183,6 +189,16 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
+      cuestionario: 'Escala de Ansiedad y Depresión Hospitalaria (HADS)',
+      respuestas: resumen
+    });
+    // Copia a la plataforma
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      email_psicologo: 'plataformadeevaluacion@gmail.com',
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala de Ansiedad y Depresión Hospitalaria (HADS)',
       respuestas: resumen
     });

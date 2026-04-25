@@ -108,6 +108,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
+  <div class="email-block" style="border-color:#993556;">
+    <label for="num-paciente">🔢 Número de paciente</label>
+    <input type="text" id="num-paciente" placeholder="Ej: PAC-001" oninput="checkEmail()">
+    <div class="email-hint">Este número aparecerá en el correo para identificar al paciente.</div>
+  </div>
   <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, lea cuidadosamente cada una de las frases que aparecen a continuación y responda en qué medida le describen. (1=Muy en desacuerdo, 7=Muy de acuerdo)</div>
   <div class="progress-label" id="progressLabel">0 de 917 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -133,7 +138,7 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['  Existe una persona especial que está cerca de mí cuando la necesito.', '  Existe una persona especial con la cual puedo compartir alegrías y tristezas.', '  Mi familia trata realmente de ayudarme.', '  Tengo la ayuda y el apoyo emocional que necesito de mi familia.', '  Tengo una persona especial que es una fuente real de consuelo para mí.', '  Mis amigos tratan realmente de ayudarme.', '  Puedo contar con mis amigos cuando las cosas van mal.', '  Puedo hablar de mis problemas con mi familia.', '  Tengo amigos con los cuales puedo compartir mis alegrías y mis penas.', '  Hay una persona especial en mi vida que se preocupa de mis sentimientos.', '  Mi familia está dispuesta a ayudarme a tomar decisiones.', '  Puedo hablar de mis problemas con mis amigos.'];
+const preguntas = ['[Persona significativa] Existe una persona especial que está cerca de mí cuando la necesito.', '[Persona significativa] Existe una persona especial con la cual puedo compartir alegrías y tristezas.', '[Familia] Mi familia trata realmente de ayudarme.', '[Familia] Tengo la ayuda y el apoyo emocional que necesito de mi familia.', '[Persona significativa] Tengo una persona especial que es una fuente real de consuelo para mí.', '[Amigos] Mis amigos tratan realmente de ayudarme.', '[Amigos] Puedo contar con mis amigos cuando las cosas van mal.', '[Familia] Puedo hablar de mis problemas con mi familia.', '[Amigos] Tengo amigos con los cuales puedo compartir mis alegrías y mis penas.', '[Persona significativa] Hay una persona especial en mi vida que se preocupa de mis sentimientos.', '[Familia] Mi familia está dispuesta a ayudarme a tomar decisiones.', '[Amigos] Puedo hablar de mis problemas con mis amigos.'];
 const opciones  = ['Muy en desacuerdo (1)', 'Bastante en desacuerdo (2)', 'Algo en desacuerdo (3)', 'Ni de acuerdo ni en desacuerdo (4)', 'Algo de acuerdo (5)', 'Bastante de acuerdo (6)', 'Muy de acuerdo (7)'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
@@ -167,7 +172,8 @@ function actualizarProgreso() {
   document.getElementById('progressFill').style.width = (r/totalPreguntas*100) + '%';
   document.getElementById('progressLabel').textContent = r + ' de ' + totalPreguntas + ' preguntas respondidas';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(r === totalPreguntas && emailOk && numPacOk);
 }
 function checkEmail() { actualizarProgreso(); }
 async function enviarFormulario() {
@@ -183,6 +189,16 @@ async function enviarFormulario() {
   try {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
+      cuestionario: 'Escala Multidimensional de Apoyo Social Percibido (MSPSS)',
+      respuestas: resumen
+    });
+    // Copia a la plataforma
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      email_psicologo: 'plataformadeevaluacion@gmail.com',
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Escala Multidimensional de Apoyo Social Percibido (MSPSS)',
       respuestas: resumen
     });

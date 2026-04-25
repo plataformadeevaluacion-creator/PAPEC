@@ -102,7 +102,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>MoCA</span></div>
   <div class="tag"><span class="tag-dot"></span>Síntomas Específicos</div>
   <h1>Evaluación Cognitiva <em>Montreal</em> (MoCA)</h1>
-  <p>Evaluación cognitiva administrada por el profesional. Puntuación máxima: 30 puntos. Normal ≥ 26. Añadir 1 punto si el paciente tiene menos de 12 años de estudios.  </p>
+  <p>Evaluación cognitiva administrada por el profesional. Puntuación máxima: 30 puntos. Normal ≥ 26. Añadir 1 punto si el paciente tiene menos de 12 años de estudios. © Z. Nasreddine MD. Versión 07 noviembre 2004.</p>
 </div>
 
 <div class="main">
@@ -384,7 +384,8 @@ function updateTotal() {
   document.getElementById('progressFill').style.width = (answered/totalItems*100) + '%';
   document.getElementById('progressLabel').textContent = 'Puntuación actual: ' + total + ' / 30 (' + answered + ' de ' + totalItems + ' ítems puntuados)';
   const emailOk = document.getElementById('email-psicologo').value.includes('@');
-  document.getElementById('btnSubmit').disabled = !(answered >= totalItems && emailOk);
+  const numPacOk = (document.getElementById('num-paciente')?.value || '').trim().length > 0;
+  document.getElementById('btnSubmit').disabled = !(answered >= totalItems && emailOk && numPacOk);
 }
 
 function checkProgress() { updateTotal(); }
@@ -403,6 +404,8 @@ async function enviarFormulario() {
   try {
     await emailjs.send('pepop','template_b52eu95',{
       email_psicologo: email,
+      platform_email: 'plataformadeevaluacion@gmail.com',
+      num_paciente: document.getElementById('num-paciente')?.value || 'No indicado',
       cuestionario: 'Evaluación Cognitiva Montreal (MoCA)',
       respuestas: resumen
     });
