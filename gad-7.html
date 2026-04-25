@@ -100,7 +100,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>Cuestionario Breve de Evaluación del Trastorno de Ansiedad Generalizada (GAD-7)</span></div>
   <div class="tag"><span class="tag-dot"></span>Medidas de Screening y Malestar Emocional</div>
   <h1>Cuestionario Breve de Evaluación del Trastorno de Ansiedad Generalizada (<em>GAD-7</em>)</h1>
-  <p>Durante las últimas 2 semanas, ¿con qué frecuencia le han molestado los siguientes problemas?</p>
+  <p>En los últimos 14 días, ¿con qué frecuencia le han supuesto una molestia los siguientes problemas? (Spitzer, Kroenke, Williams, y Löwe, 2006)</p>
 </div>
 <div class="main">
   <div class="email-block">
@@ -108,8 +108,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
-  <div class="instrucciones"><strong>Instrucciones:</strong> Durante las últimas 2 semanas, ¿con qué frecuencia le han molestado los siguientes problemas?</div>
-  <div class="progress-label" id="progressLabel">0 de 343 preguntas respondidas</div>
+  <div class="instrucciones"><strong>Instrucciones:</strong> En los últimos 14 días, ¿con qué frecuencia le han supuesto una molestia los siguientes problemas? (Spitzer, Kroenke, Williams, y Löwe, 2006)</div>
+  <div class="progress-label" id="progressLabel">0 de 371 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   <form id="mainForm"><div id="preguntasContainer"></div>
     <div class="submit-area">
@@ -133,8 +133,8 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['Sentirse nervioso/a, ansioso/a o con los nervios de punta.', 'No poder detenerse o controlar la preocupación.', 'Preocuparse demasiado por cosas diferentes.', 'Dificultad para relajarse.', 'Ser tan inquieto/a que es difícil quedarse quieto/a.', 'Molestarse o irritarse con facilidad.', 'Sentir miedo, como si algo horrible pudiera suceder.'];
-const opciones  = ['De nada (0)', 'Varios días (1)', 'Más de la mitad de los días (2)', 'Casi todos los días (3)'];
+const preguntas = ['Sentirse nervioso/a, angustiado/a o muy tenso/a.', 'Ser incapaz de dejar de preocuparse o de controlar la preocupación.', 'Preocuparse demasiado por diferentes cuestiones.', 'Tener problemas para relajarse.', 'Estar tan inquieto/a que le resulta difícil permanecer sentado/a.', 'Enfadarse o irritarse con facilidad.', 'Sentir miedo de que algo terrible pueda ocurrir.'];
+const opciones  = ['0 No, en absoluto', '1 Algunos días', '2 Más de la mitad de los días', '3 Casi todos los días'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
 function renderPreguntas() {
