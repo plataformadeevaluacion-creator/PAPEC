@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAPEC — Nosotros</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff5f8;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3.5rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffd6e7;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo-wrap { display: flex; align-items: center; gap: 0.6rem; }
+.logo-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: #d4547e;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; }
+.logo-text { font-weight: 600; font-size: 1.2rem; color: #72243e; letter-spacing: 0.06em; }
+.logo-text span { color: #d4547e; }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: #993556; font-size: 0.88rem; transition: color 0.2s; }
+.nav-links a:hover { color: #d4547e; }
+.nav-links a.active { color: #d4547e; font-weight: 600; }
+.nav-cta {
+  background: #d4547e !important; color: white !important;
+  padding: 0.5rem 1.4rem; border-radius: 999px;
+  font-weight: 500 !important; font-size: 0.85rem !important;
+}
+.nav-cta:hover { background: #b5446e !important; }
+
+/* HERO */
+.page-hero {
+  background: linear-gradient(135deg, #fbeaf0 0%, #fff5f8 60%, #ffd6e7 100%);
+  padding: 4rem 3.5rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid #ffd6e7;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,84,126,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,84,126,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.tag {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: white; border: 1px solid #f4c0d1; color: #993556;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+.tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #d4547e; }
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: #4b1528; font-weight: 600; margin-bottom: 1rem; line-height: 1.2;
+}
+.page-hero h1 em { font-style: italic; color: #d4547e; }
+.page-hero .lead {
+  color: #72243e; font-size: 1rem; font-weight: 300; line-height: 1.8;
+  max-width: 640px; margin: 0 auto;
+}
+
+/* MAIN */
+.main { max-width: 960px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+/* SECTION: QUIÉNES SOMOS */
+.section { margin-bottom: 3.5rem; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #d4547e; margin-bottom: 1rem;
+}
+.section-label::before {
+  content: '';
+  display: block; width: 20px; height: 2px;
+  background: #d4547e; border-radius: 2px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 600; color: #4b1528;
+  margin-bottom: 1.2rem; line-height: 1.25;
+}
+.section h2 em { font-style: italic; color: #d4547e; }
+.section p {
+  color: #72243e; font-size: 0.95rem; line-height: 1.85;
+  font-weight: 300; margin-bottom: 1rem;
+}
+
+/* TEAM CARDS */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.team-card {
+  background: white;
+  border: 1px solid #ffd6e7;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.team-card:hover {
+  border-color: #f4c0d1;
+  box-shadow: 0 4px 24px rgba(212,84,126,0.09);
+}
+.team-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, #fbeaf0, #ffd6e7);
+  border: 2px solid #f4c0d1;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.team-avatar svg { width: 24px; height: 24px; stroke: #d4547e; fill: none; stroke-width: 1.8; }
+.team-name { font-size: 0.95rem; font-weight: 600; color: #4b1528; }
+.team-role {
+  font-size: 0.78rem; color: #d4547e; font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.team-desc { font-size: 0.8rem; color: #72243e; line-height: 1.6; font-weight: 300; margin-top: 0.3rem; }
+
+/* DIVIDER */
+.divider {
+  border: none;
+  border-top: 1px solid #ffd6e7;
+  margin: 3rem 0;
+}
+
+/* OBJETIVO SECTION */
+.objetivo-block {
+  background: white;
+  border: 1px solid #ffd6e7;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-top: 1.5rem;
+}
+.objetivo-block p {
+  color: #72243e; font-size: 0.95rem; line-height: 1.85; font-weight: 300;
+  margin-bottom: 0;
+}
+
+/* DIMENSIONES LIST */
+.dimensiones {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+.dimension-item {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  background: white; border: 1px solid #ffd6e7; border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.dimension-item:hover {
+  border-color: #f4c0d1;
+  box-shadow: 0 2px 12px rgba(212,84,126,0.07);
+}
+.dimension-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #d4547e; flex-shrink: 0; margin-top: 5px;
+}
+.dimension-text { font-size: 0.82rem; color: #4b1528; line-height: 1.5; font-weight: 400; }
+
+/* OBJETIVOS ESPECÍFICOS */
+.objetivos-list {
+  margin-top: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.objetivo-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: white; border: 1px solid #ffd6e7; border-radius: 12px;
+  padding: 1rem 1.2rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.objetivo-item:hover {
+  border-color: #f4c0d1;
+  box-shadow: 0 2px 12px rgba(212,84,126,0.07);
+}
+.objetivo-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: #d4547e;
+  flex-shrink: 0; line-height: 1; margin-top: 1px;
+  min-width: 20px;
+}
+.objetivo-text { font-size: 0.85rem; color: #4b1528; line-height: 1.6; font-weight: 400; }
+
+/* CTA BOTTOM */
+.cta-section {
+  background: linear-gradient(135deg, #fbeaf0 0%, #fff5f8 100%);
+  border: 1px solid #ffd6e7;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-top: 3.5rem;
+}
+.cta-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 600; color: #4b1528;
+  margin-bottom: 0.7rem;
+}
+.cta-section h3 em { font-style: italic; color: #d4547e; }
+.cta-section p { color: #72243e; font-size: 0.9rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.7; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #d4547e; color: white; text-decoration: none;
+  padding: 0.75rem 1.8rem; border-radius: 999px; font-size: 0.88rem;
+  font-weight: 500; transition: background 0.2s, transform 0.15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.cta-btn:hover { background: #b5446e; transform: translateY(-1px); }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .page-hero { padding: 2.5rem 1.5rem 2rem; }
+  .main { padding: 2rem 1rem 3.5rem; }
+  .objetivo-block { padding: 1.5rem; }
+  .dimensiones { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 3-7 7 0 2.5 1.3 4.7 3.2 6L9 20h6l.8-4C17.7 14.7 19 12.5 19 10c0-4-3-7-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="10" y1="17" x2="14" y2="17"/></svg>
+    </div>
+    <div class="logo-text">PAP<span>EC</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="cuestionarios.html">Cuestionarios</a></li>
+    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+    <li><a href="#" class="nav-cta">Registrarse</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="tag"><span class="tag-dot"></span>Quiénes somos</div>
+  <h1>El equipo detrás de <em>PAPEC</em></h1>
+  <p class="lead">Somos psicólogas especializadas en psicooncología, comprometidas con acercar herramientas de evaluación clínica de calidad a profesionales y pacientes.</p>
+</div>
+
+<div class="main">
+
+  <!-- QUIÉNES SOMOS -->
+  <div class="section">
+    <div class="section-label">El equipo</div>
+    <h2>Psicólogas <em>especializadas</em></h2>
+    <p>PAPEC nació de la necesidad de sistematizar y centralizar los instrumentos de evaluación utilizados en el ámbito de la psicooncología. Somos psicólogas y psicooncólogas con formación especializada en el acompañamiento psicológico de personas con cáncer y sus cuidadores.</p>
+    <p>Nuestra motivación es facilitar el acceso a evaluaciones validadas y de calidad, tanto para profesionales de la salud mental como para los propios pacientes, contribuyendo a una atención psicológica más completa, rigurosa y accesible.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-name">Equipo PAPEC</div>
+        <div class="team-role">Psicólogas · Psicooncología</div>
+        <div class="team-desc">Profesionales con formación especializada en evaluación psicológica y acompañamiento en el ámbito oncológico.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- OBJETIVO -->
+  <div class="section">
+    <div class="section-label">Nuestro objetivo</div>
+    <h2>¿Qué es <em>PAPEC</em>?</h2>
+    <div class="objetivo-block">
+      <p>PAPEC es una plataforma web de acceso abierto que recopila y sistematiza los principales instrumentos de evaluación psicológica empleados en psicooncología. Su objetivo central es identificar, organizar y facilitar el acceso a herramientas validadas para la valoración de distintas dimensiones psicológicas en pacientes oncológicos y sus cuidadores.</p>
+      <p>Cada instrumento cuenta con una ficha técnica detallada que incluye sus características principales, propiedades psicométricas, ámbito de aplicación y referencias bibliográficas, permitiendo a los profesionales seleccionar la herramienta más adecuada para cada situación clínica.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- DIMENSIONES -->
+  <div class="section">
+    <div class="section-label">Áreas de evaluación</div>
+    <h2>¿Qué <em>evaluamos</em>?</h2>
+    <p>La plataforma incluye instrumentos para la valoración de las siguientes dimensiones psicológicas:</p>
+
+    <div class="dimensiones">
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Medidas de screening y malestar emocional</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Estados emocionales: ansiedad, depresión, desmoralización, autocompasión y miedo</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Riesgo de suicidio, deseos adelantados de muerte y actitudes ante la muerte</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Procesos de duelo, incluido el duelo anticipado</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Apoyo social y funcionamiento familiar y de pareja</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Estrategias de afrontamiento y aceptación de la enfermedad</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Calidad de vida relacionada con la salud</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Síntomas específicos: miedo a la recurrencia, imagen corporal, dolor, fatiga, sueño y sexualidad</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Deterioro cognitivo, demencia y delirium</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-dot"></div>
+        <div class="dimension-text">Adaptación, sobrecarga y estado emocional en cuidadores</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- OBJETIVOS ESPECÍFICOS -->
+  <div class="section">
+    <div class="section-label">Objetivos específicos</div>
+    <h2>¿Cómo lo <em>hacemos</em>?</h2>
+
+    <div class="objetivos-list">
+      <div class="objetivo-item">
+        <div class="objetivo-num">1</div>
+        <div class="objetivo-text">Identificar los instrumentos de evaluación más relevantes y utilizados en psicooncología.</div>
+      </div>
+      <div class="objetivo-item">
+        <div class="objetivo-num">2</div>
+        <div class="objetivo-text">Sistematizar y categorizar dichos instrumentos según las dimensiones psicológicas que evalúan.</div>
+      </div>
+      <div class="objetivo-item">
+        <div class="objetivo-num">3</div>
+        <div class="objetivo-text">Analizar sus características principales: autores, adaptación española, propiedades psicométricas, formato, duración y referencias bibliográficas.</div>
+      </div>
+      <div class="objetivo-item">
+        <div class="objetivo-num">4</div>
+        <div class="objetivo-text">Evaluar la disponibilidad y accesibilidad de cada instrumento para su uso en contextos clínicos.</div>
+      </div>
+      <div class="objetivo-item">
+        <div class="objetivo-num">5</div>
+        <div class="objetivo-text">Desarrollar una plataforma web accesible, estructurada y de acceso abierto para la difusión de estos recursos.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3>Explorá los <em>cuestionarios</em></h3>
+    <p>Accedé a todas las evaluaciones disponibles, organizadas por área clínica y listas para compartir con tus pacientes.</p>
+    <a href="cuestionarios.html" class="cta-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Ver cuestionarios
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
