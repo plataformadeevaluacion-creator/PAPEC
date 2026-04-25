@@ -100,7 +100,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   <div class="breadcrumb"><a href="cuestionarios.html">← Cuestionarios</a><span>/</span><span>Cuestionario Breve del Dolor (CBD)</span></div>
   <div class="tag"><span class="tag-dot"></span>Síntomas Específicos</div>
   <h1>Cuestionario Breve del Dolor (<em>CBD</em>)</h1>
-  <p>Por favor, evalúe su dolor rodeando con un círculo el número que mejor describa la intensidad de su dolor y cómo le ha afectado durante la última semana. Use una escala del 0 al 10.</p>
+  <p>Por favor, evalúe su dolor rodeando con un círculo el número que mejor describa la intensidad de su dolor y cómo le ha afectado durante la última semana.</p>
 </div>
 <div class="main">
   <div class="email-block">
@@ -108,8 +108,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     <input type="email" id="email-psicologo" placeholder="correo@ejemplo.com" oninput="checkEmail()">
     <div class="email-hint">Los resultados se enviarán automáticamente a esta dirección al completar el cuestionario.</div>
   </div>
-  <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, evalúe su dolor rodeando con un círculo el número que mejor describa la intensidad de su dolor y cómo le ha afectado durante la última semana. Use una escala del 0 al 10.</div>
-  <div class="progress-label" id="progressLabel">0 de 1395 preguntas respondidas</div>
+  <div class="instrucciones"><strong>Instrucciones:</strong> Por favor, evalúe su dolor rodeando con un círculo el número que mejor describa la intensidad de su dolor y cómo le ha afectado durante la última semana.</div>
+  <div class="progress-label" id="progressLabel">0 de 1728 preguntas respondidas</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   <form id="mainForm"><div id="preguntasContainer"></div>
     <div class="submit-area">
@@ -133,7 +133,7 @@ const EMAILJS_PUBLIC_KEY  = 'PXEw-jfntiZISPx6I';
 const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
-const preguntas = ['Intensidad máxima del dolor en la última semana (0=Ningún dolor, 10=El peor dolor imaginable)', 'Intensidad mínima del dolor en la última semana (0=Ningún dolor, 10=El peor dolor imaginable)', 'Intensidad media del dolor (0=Ningún dolor, 10=El peor dolor imaginable)', 'Intensidad del dolor ahora mismo (0=Ningún dolor, 10=El peor dolor imaginable)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en sus actividades en general? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en su estado de ánimo? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en su capacidad de caminar? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en su trabajo habitual (incluye tareas domésticas)? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en sus relaciones con otras personas? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en su sueño? (0=No me ha afectado, 10=Me ha afectado por completo)', 'En la última semana, ¿hasta qué punto el dolor le ha afectado en disfrutar de la vida? (0=No me ha afectado, 10=Me ha afectado por completo)'];
+const preguntas = ['Intensidad máxima del dolor en la última semana (0=Ningún dolor — 10=El peor dolor imaginable)', 'Intensidad mínima del dolor en la última semana (0=Ningún dolor — 10=El peor dolor imaginable)', 'Intensidad media del dolor (0=Ningún dolor — 10=El peor dolor imaginable)', 'Intensidad del dolor ahora mismo (0=Ningún dolor — 10=El peor dolor imaginable)', '¿Qué tipo de cosas le alivia el dolor? (Ej. caminar, estar de pie, levantar algo)', '¿Qué tipo de cosas empeora el dolor? (Ej. caminar, estar de pie, levantar algo)', '¿Qué tratamiento o medicación está recibiendo para el dolor?', 'En la última semana, ¿hasta qué punto le han aliviado los tratamientos o medicación para el dolor? (0%=Ningún alivio — 100%=Alivio total)', 'Si toma medicación, ¿cuánto tarda en volver a sentir dolor?', '¿El dolor está relacionado con su enfermedad principal? (Sí / No)', '¿El dolor se debe a una situación no relacionada con su enfermedad principal? (Sí / No — si es así, descríbala)', 'Dolorido/continuo (Sí / No)', 'Palpitante (Sí / No)', 'Irradiante (Sí / No)', 'Punzante (Sí / No)', 'Fatigoso/pesado (Sí / No)', 'Penetrante (Sí / No)', 'Persistente (Sí / No)', 'En la última semana, ¿en qué medida ha interferido su dolor en su actividad en general? (0=No interfiere — 10=Interfiere por completo)', 'En la última semana, ¿en qué medida ha interferido su dolor en su estado de ánimo? (0=No interfiere — 10=Interfiere por completo)', 'En la última semana, ¿en qué medida ha interferido su dolor en su capacidad para caminar? (0=No interfiere — 10=Interfiere por completo)', 'En la última semana, ¿en qué medida ha interferido su dolor en su trabajo habitual (incluye tareas domésticas)? (0=No interfiere — 10=Interfiere por completo)'];
 const opciones  = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
