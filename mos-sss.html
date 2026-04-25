@@ -134,7 +134,7 @@ const EMAILJS_SERVICE_ID  = 'pepop';
 const EMAILJS_TEMPLATE_ID = 'template_b52eu95';
 emailjs.init(EMAILJS_PUBLIC_KEY);
 const preguntas = ['Alguien que le ayude cuando tenga que estar en la cama.', 'Alguien con quien pueda contar cuando necesita hablar.', 'Alguien que le aconseje bien acerca de una crisis.', 'Alguien que le lleve al médico cuando lo necesita.', 'Alguien que le muestre amor y afecto.', 'Alguien con quien pasar un buen rato.', 'Alguien que le informe y le ayude a entender una situación.', 'Alguien en quien confiar o con quien hablar de sí mismo/a y sus preocupaciones.', 'Alguien que le abrace.', 'Alguien con quien pueda relajarse.', 'Alguien que le prepare la comida si no puede hacerlo.', 'Alguien cuyo consejo realmente desee.', 'Alguien con quien hacer cosas que le ayuden a olvidar sus problemas.', 'Alguien que le ayude en sus tareas domésticas si está enfermo/a.', 'Alguien con quien compartir sus temores o problemas más íntimos.', 'Alguien que le aconseje cómo resolver sus problemas personales.', 'Alguien con quien divertirse.', 'Alguien que comprenda sus problemas.', 'Alguien a quien amar y que le haga sentirse querido/a.'];
-const opciones  = ['Nunca', 'Pocas veces', 'Algunas veces', 'La mayoría de las veces', 'Siempre'];
+const opciones  = ['1 Nunca', '2 Pocas veces', '3 Algunas veces', '4 La mayoría de las veces', '5 Siempre'];
 const totalPreguntas = preguntas.length;
 const respuestas = new Array(totalPreguntas).fill(null);
 function renderPreguntas() {
